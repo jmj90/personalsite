@@ -1,7 +1,7 @@
 {
-  "name": "boilermaker",
+  "name": "johnsonJake",
   "version": "1.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "Jake Johnson. Developer - Personal Site",
   "engines": {
     "node": ">= 7.0.0"
   },
@@ -19,7 +19,7 @@
     "start-server": "nodemon server -e html,js,scss --ignore public --ignore client",
     "test": "NODE_ENV='test' mocha ./server/**/*.spec.js ./server/**/**/*.spec.js ./client/**/*.spec.js --require @babel/polyfill --require @babel/register"
   },
-  "author": "Fullstack Academy of Code",
+  "author": "Jake Johnson",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.15.3",
@@ -37,6 +37,7 @@
     "prop-types": "^15.5.8",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-parallax": "^1.6.1",
     "react-redux": "^5.0.2",
     "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",

@@ -1,5 +1,8 @@
 body {
   font-family: sans-serif;
+  background-color: white;
+  margin: 0;
+  transition: .2s ease;
 }
 
 a {
@@ -18,4 +21,223 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+.title {
+  font-family: "HelveticaNeue-CondensedBold";
+  font-size: 18rem;
+  color: white;
+  opacity: .8;
+}
+
+/* |||||||||| -- MAIN PAGE -- |||||||||| */
+
+.viewport {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  overflow: hidden;
+  position:fixed;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#name-tag {
+  display: flex;
+  flex-direction: column;
+}
+
+#name {
+  font-family: "HelveticaNeue";
+  letter-spacing: -.04em;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  font-size: 4.5rem;
+  color: #242423;
+  transition: .4s ;
+}
+
+#name.active {
+  opacity: 1;
+  color: white;
+}
+
+.icons {
+  max-height: 22px;
+  margin-left: 10px;
+}
+
+.icons:hover {
+  /* -webkit-filter: drop-shadow(0px 5px 3px lightgray);
+ filter: drop-shadow(0px 5px 3px lightgray); */
+}
+
+#tag-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+
+#occupation {
+  font-family: "HelveticaNeue";
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  color: #242423;
+}
+
+
+#picContainer {
+  width: 446px;
+}
+
+#profilepic {
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-self: center;
+  transition: .2s;
+  opacity: 1;
+}
+
+#profilepic.hover {
+  opacity: 0;
+  display: flex;
+  align-self: center;
+}
+
+#profilepic.active {
+  opacity: 0;
+}
+
+#aboutNav {
+  cursor: pointer;
+  z-index: -4;
+  width: 446px;
+  text-align: center;
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0;
+  transition: 1s;
+}
+
+#aboutNav.active {
+  opacity: 1  ;
+}
+
+#about-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 446px;
+  height: 0px;
+  white-space: pre-line;
+  overflow: auto;
+  transition: height .5s ease;
+}
+
+#about-container.active {
+  height: 550px;
+}
+
+.divider {
+  width: 446px;
+  height: 2px;
+  margin-top: .3rem;
+  margin-bottom: .3rem;
+  background-color: black;
+}
+
+#aboutme {
+  font-family: "HelveticaNeue";
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #242423;
+}
+
+#aboutText {
+white-space: pre-line;
+}
+
+#copy {
+  bottom: 10px;
+  position: absolute;
+  font-size: .8rem;
+  color: #242423;
+}
+
+#headshot {
+  max-width: 130px;
+  float: left;
+  margin-right: 1rem;
+}
+/* |||||||||| -- NAV -- |||||||||| */
+
+.Nav-Nav {
+  display: flex;
+  align-self: center;
+  justify-content: flex-start;
+  align-items: center;
+  width: 446px;
+}
+
+.horizontal-list {
+  display: flex;
+  width: 1000px;
+  justify-content: space-around;
+  margin-top: 4px;
+}
+
+.Nav-Item {
+  font-family: "HelveticaNeue";
+  font-weight: lighter;
+  font-size: .8em;
+  padding-left: .5em;
+  color: white;
+  border-bottom-color: rgba(0,0,0,0);
+  transition: 1.5s ease;
+}
+
+.Nav-Item-2 {
+  font-family: "HelveticaNeue";
+  display: flex;
+  justify-content: flex-start;
+  color: #242423;
+}
+
+.Nav-Item-2:hover {
+  cursor: pointer;
+}
+
+.landing-video-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  max-height: 100vh;
+}
+
+#video-frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#video-text-overlay {
+  font-family: "HelveticaNeue-CondensedBold";
+  font-size: 12rem;
+  color: black;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
 }
