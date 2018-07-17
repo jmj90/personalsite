@@ -3,6 +3,33 @@ import history from '../history'
 
 export default class Lander extends Component {
 
+  pageLoader(){
+      window.addEventListener('load', function() {
+      let name = document.getElementById('name');
+      let tag = document.getElementById('tag-container');
+      let pic = document.getElementById('picContainer');
+
+      if (name.classList.contains('hidden')) {
+        setTimeout(function() {
+          name.className = '';
+        }, 500);
+      }
+
+      if (tag.classList.contains('hidden')) {
+        setTimeout(function() {
+          tag.className = '';
+        }, 700);
+      }
+
+      if (pic.classList.contains('hidden')) {
+        setTimeout(function() {
+          pic.className = '';
+        }, 1000);
+      }
+
+    }, false);
+  }
+
 
   mouseOverEnter(evt) {
     let color = evt.target.name
@@ -44,11 +71,12 @@ export default class Lander extends Component {
   render() {
     return (
       <div className="viewport">
+        {this.pageLoader()}
         <div id="name-tag">
-          <div id="name"> Jake Johnson
+          <div id="name" className='hidden'> Jake Johnson
             <div id="nameline" />
            </div>
-          <div id="tag-container">
+          <div id="tag-container" className='hidden'>
             <div id="occupation"> Software Engineer. Creative Professional.  </div>
             <div id="links" onMouseLeave={this.mouseOverLeave}>
               <a href="https://github.com/jmj90" target="_blank">
@@ -103,7 +131,7 @@ export default class Lander extends Component {
               <div className="divider" />
           </div>
         </div>
-          <div id="picContainer">
+          <div id="picContainer" className="hidden">
             <div id="aboutNav">
               about.
             </div>

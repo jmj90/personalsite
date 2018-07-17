@@ -30,6 +30,11 @@ form div {
   opacity: .8;
 }
 
+.hidden {
+  opacity: 0;
+  transform: translate3d(0px, 18px, 0)
+}
+
 /* |||||||||| -- MAIN PAGE -- |||||||||| */
 
 .viewport {
@@ -47,17 +52,17 @@ form div {
 #name-tag {
   display: flex;
   flex-direction: column;
+  transition: 1s;
 }
 
 #name {
   font-family: "HelveticaNeue";
   letter-spacing: -.04em;
   font-weight: bold;
-  display: flex;
-  justify-content: space-between;
   align-self: center;
   font-size: 4.5rem;
   color: #242423;
+  position: relative;
   transition: .4s ;
 }
 
@@ -80,6 +85,7 @@ form div {
   display: flex;
   align-items: center;
   margin-bottom: .5rem;
+  transition: .5s;
 }
 
 #occupation {
@@ -93,6 +99,7 @@ form div {
 
 #picContainer {
   width: 446px;
+  transition: .5s;
 }
 
 #profilepic {
@@ -141,7 +148,7 @@ form div {
 }
 
 #about-container.active {
-  height: 550px;
+  height: 500px;
 }
 
 .divider {
@@ -161,11 +168,12 @@ form div {
 }
 
 #aboutText {
-white-space: pre-line;
+  white-space: pre-line;
 }
 
 #copy {
-  bottom: 10px;
+  z-index: -9;
+  bottom: 4px;
   position: absolute;
   font-size: .8rem;
   color: #242423;
@@ -240,4 +248,115 @@ white-space: pre-line;
   align-items: center;
   position: absolute;
   width: 100%;
+}
+
+@media only screen and (max-height: 695px){
+
+  #aboutText {
+    font-size: .9rem;
+  }
+
+  #about-container.active {
+    height: 400px;
+  }
+
+  #aboutNav.active {
+    opacity: 1  ;
+    background-color: white;
+  }
+
+}
+
+
+#social-navigation ul {
+  height: 27px;
+  position: relative;
+  width: 155px
+}
+
+#social-navigation li {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  transform: translate3d(0, 0, 0);
+  transition: opacity 2s ease, transform .65s cubic-bezier(0, 1.01, 0.87, 1.01);
+  list-style: none;
+  position: absolute
+}
+
+#social-navigation li a {
+  color: #242423;
+  display: block;
+  font-size: 26px;
+  line-height: 1;
+  overflow: hidden;
+  text-decoration: none;
+  width: 27px;
+  visibility: hidden
+}
+
+#social-navigation li a:before {
+  visibility: visible
+}
+
+#social-navigation li a:hover {
+  color: #333
+}
+
+#social-navigation li.linkedin {
+  transform: translate3d(41px, 0, 0)
+}
+
+#social-navigation li.linkedin a {
+  color: #007bb6
+}
+
+#social-navigation li.linkedin a:hover {
+  color: #006da2
+}
+
+#social-navigation li.twitter {
+  transform: translate3d(82px, 0, 0)
+}
+
+#social-navigation li.twitter a {
+  color: #00aced
+}
+
+#social-navigation li.twitter a:hover {
+  color: #009dd9
+}
+
+#social-navigation li.mail {
+  transform: translate3d(123px, 0, 0)
+}
+
+#social-navigation li.mail a {
+  color: #ff3e34
+}
+
+#social-navigation li.mail a:hover {
+  color: #ff2318
+}
+
+#social-navigation.hidden li {
+  -webkit-transition: none;
+  transition: none;
+  opacity: 0;
+  filter: alpha(opacity=0)
+}
+
+#social-navigation.hidden li.github {
+  transform: translate3d(41px, 0, 0)
+}
+
+#social-navigation.hidden li.linkedin {
+  transform: translate3d(95px, 0, 0)
+}
+
+#social-navigation.hidden li.twitter {
+  transform: translate3d(155px, 0, 0)
+}
+
+#social-navigation.hidden li.mail {
+  transform: translate3d(216px, 0, 0)
 }
