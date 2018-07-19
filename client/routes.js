@@ -7,15 +7,18 @@ import {
   Signup,
   UserHome,
   Lander,
+  Projects
 } from './components'
-import {me} from './store'
+import {me, fetchProjects} from './store'
 
 /**
  * COMPONENT
  */
 class Routes extends Component {
   componentDidMount () {
+    const projectsThunk = fetchProjects()
     this.props.loadInitialData()
+
   }
 
   render () {
@@ -24,7 +27,8 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route exact path="/lander" component={Lander} />
+        <Route exact path="/home" component={Lander} />
+        <Route exact path="/projects" component={Projects} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         {
@@ -56,6 +60,7 @@ const mapDispatch = (dispatch) => {
   return {
     loadInitialData () {
       dispatch(me())
+      dispatch(fetchProjects())
     }
   }
 }
