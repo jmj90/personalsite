@@ -3,20 +3,15 @@ import history from '../history'
 
 export default class Lander extends Component {
 
-  // componentDidMount() {
-  //   window.addEventListener('mouseover', this.transitionLoad, false);
-  // }
-
   componentDidMount() {
     if (history.location.pathname){
       this.transitionLoad()
       // window.addEventListener('load', this.transitionLoad, false)
-      // window.addEventListener('mouseover', this.transitionLoad, false);
     }
   }
 
   componentWillUnmount() {
-    // window.removeEventListener('mouseover', this.transitionLoad)
+    // window.removeEventListener('load', this.transitionLoad)
   }
 
   transitionLoad() {
@@ -47,7 +42,6 @@ export default class Lander extends Component {
     }
 
   }
-
 
   mouseOverEnter(evt) {
     let color = evt.target.name
