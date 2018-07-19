@@ -5,8 +5,8 @@ module.exports = {
   entry: [
     '@babel/polyfill', // enables async-await
     './client/index.js',
-    './Lander.js',
-    './Projects.js'
+    './client/components/Lander.js',
+    './client/components/Projects.js'
   ],
   output: {
     path: __dirname,
