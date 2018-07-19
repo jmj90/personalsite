@@ -4,7 +4,6 @@ body {
   font-family: sans-serif;
   background-color: white;
   margin: 0;
-  transition: .2s ease;
 }
 
 a {
@@ -36,7 +35,7 @@ h3 {
 }
 
 #copy {
-  z-index: -9;
+  z-index: -5;
   bottom: 4px;
   position: absolute;
   font-size: .8rem;
@@ -227,20 +226,27 @@ h3 {
 
 .panelButton {
   font-family: 'Open Sans', sans-serif;
-  position: absolute;
-  z-index: -1;
-  margin-top: 1rem;
-  /* margin-left: 10rem; */
-  font-size: 50px;
-  /* width: 60vw; */
+  font-size: 12px;
   display: flex;
   justify-content: center;
   align-self: center;
   align-content: center;
+  /* position: absolute;
+  z-index: -1;
+  margin-top: 1rem;
+  margin-left: 10rem;
+  width: 100vw; */
+  transition: .1s;
+}
+
+.panelButton:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: gray;
 }
 
 .panelButton.active {
-  z-index: 4  ;
+  /* z-index: 4  ; */
 }
 
 .projectInformationDropdown {
@@ -253,7 +259,7 @@ h3 {
   transition: .2s;
   white-space: pre-line;
   color: black;
-  /* background-color: rgba(254, 248, 232, .4) */
+  background-color: white;
   /* pointer-events: fill; */
 }
 
@@ -279,7 +285,7 @@ h3 {
 }
 
 .project-card:hover {
-  opacity: .1;
+  opacity: .4;
 }
 
 .date-link-display {
@@ -308,12 +314,12 @@ h3 {
 }
 
 .disabled {
-  opacity: .1;
-  -webkit-filter: blur(2px);
+  opacity: .4;
+  /* -webkit-filter: blur(2px);
   -moz-filter: blur(2px);
   -o-filter: blur(2px);
   -ms-filter: blur(2px);
-  filter: blur(2px);
+  filter: blur(2px); */
 }
 
 
@@ -342,8 +348,13 @@ h3 {
 }
 
 .Nav-Bottom {
-  bottom: 40px;
-  position: absolute;
+  display: flex;
+  margin-bottom: 2rem;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-end;
+  /* bottom: 40px; */
+  /* position: absolute; */
   color: #242423;
 }
 
@@ -361,11 +372,121 @@ h3 {
 
   #aboutNav.active {
     opacity: 1  ;
-    background-color: white;
   }
 
 }
 
+/* ------------ breakpoint 2 620px ------------ */
+/*  ---------------------------------------------------------------------------------------------------------------------  */
+@media only screen and (max-height: 620px){
+
+  #name {
+    font-size: 3rem;
+  }
+
+  #profilepic {
+    max-width: 294px;
+  }
+
+  #picContainer {
+    display: flex;
+    width: 446px;
+    transition: .5s;
+    justify-content: center;
+  }
+
+  #occupation {
+    font-size: .65rem;
+  }
+
+  #name-tag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 1s;
+  }
+
+  .icons {
+    max-height: 15px
+  }
+
+  #nav-row {
+    display: none;
+  }
+
+  #aboutText {
+    font-size: .7rem;
+  }
+
+
+  #aboutNav {
+    font-size: .9rem;
+    opacity: 1  ;
+  }
+
+}
+
+
+/* ------------ breakpoint 3 iphone 375px ------------ */
+/*  ---------------------------------------------------------------------------------------------------------------------  */
+@media only screen and (max-width: 600px){
+
+  #name {
+    font-size: 3rem;
+  }
+
+  #profilepic {
+    max-width: 294px;
+  }
+
+  #picContainer {
+    display: flex;
+    width: 446px;
+    transition: .5s;
+    justify-content: center;
+  }
+
+  #occupation {
+    font-size: .65rem;
+  }
+
+  #name-tag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 1s;
+  }
+
+  #about-container {
+    width: 80%;
+  }
+
+  .active {
+    width: 70%;
+  }
+
+  .icons {
+    max-height: 15px
+  }
+
+  #nav-row {
+    display: none;
+  }
+
+  #aboutText {
+    font-size: .7rem;
+  }
+
+  #about-container.active {
+    height: 400px;
+  }
+
+  #aboutNav {
+    font-size: .9rem;
+    opacity: 1  ;
+  }
+
+}
 
 
 

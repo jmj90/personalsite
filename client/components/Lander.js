@@ -106,7 +106,7 @@ export default class Lander extends Component {
                   onMouseEnter={this.mouseOverEnter}
                   src="/images/icons/linked.png" />
               </a>
-              <a href="https://www.behance.net/jake_johnson" rel="noopener noreferrer" target="_blank">
+              <a href="https://www.behance.net/jmj90" rel="noopener noreferrer" target="_blank">
                 <img
                   className="icons"
                   name="#000"
@@ -114,7 +114,7 @@ export default class Lander extends Component {
                   onMouseEnter={this.mouseOverEnter}
                   src="/images/icons/behance.svg" />
               </a>
-              <a href="https://twitter.com/jakeferdjohnson" rel="noopener noreferrer" target="_blank">
+              <a href="https://twitter.com/jmjninety" rel="noopener noreferrer" target="_blank">
                 <img
                   className="icons"
                   name="#52B6E6"

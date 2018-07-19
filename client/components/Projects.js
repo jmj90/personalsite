@@ -60,14 +60,14 @@ class Projects extends Component {
     });
 
     // enable/disable functionality
-    if(selectedMenu[0].innerText === "collapse"){
+    if(selectedMenu[0].innerText === 'collapse ▴'){
         selectedDropDownPanel[0].classList.remove('active')
         selectedImage[0].classList.remove('disabled')
-        selectedMenu[0].innerText = "find out more"
+        selectedMenu[0].innerText = 'find out more ▾'
     } else {
         selectedImage[0].classList.add('disabled')
         selectedDropDownPanel[0].classList.add('active')
-        selectedMenu[0].innerText = "collapse"
+        selectedMenu[0].innerText = 'collapse ▴'
       }
   }
 
@@ -83,8 +83,7 @@ class Projects extends Component {
             (
               <div key={project.id} className="project-card-container hidden">
                 <div className="project-title">{project.title}</div>
-                <div onClick={this.expandAbout}>
-                  <div id={project.id} className="panelButton"> find out more </div>
+                <div className="project-spread" onClick={this.expandAbout}>
                   <img id={project.id} className="project-card" src={project.imgUrl} />
                   <div id={project.id} className="projectInformationDropdown">
                     <div className="date-link-display">
@@ -133,6 +132,7 @@ class Projects extends Component {
                       {project.description}
                     </div>
                   </div>
+                  <div id={project.id} className="panelButton"> find out more ▾ </div>
                 </div>
               </div>
             )
