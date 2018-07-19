@@ -2,12 +2,12 @@ const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
-  entry: [
-    '@babel/polyfill', // enables async-await
-    './client/index.js',
-    './client/components/Lander.js',
-    './client/components/Projects.js'
-  ],
+  entry: () => new Promise((resolve) => resolve([
+      '@babel/polyfill', // enables async-await
+      './client/index.js',
+      './client/components/Lander.js',
+      './client/components/Projects.js'
+    ])),
   output: {
     path: __dirname,
     filename: './public/bundle.js'
