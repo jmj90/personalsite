@@ -44,10 +44,11 @@ export const fetchProjects = () => dispatch => {
 }
 
 export const addProject = project => dispatch => {
+  console.log(project)
   axios.post('/api/projects', project)
     .then(res => {
       dispatch(createProject(res.data))
-      window.location.href = `/projects/${res.data.id}`
+      window.location.href = `/projects`
     })
     .catch(err => console.error(`Error adding project: ${project}`, err));
 }

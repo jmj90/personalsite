@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import history from '../history'
 
 /**
  * COMPONENT
@@ -9,8 +10,10 @@ export const UserHome = (props) => {
   const {email} = props
 
   return (
-    <div>
-      <h3>Welcome, {email}</h3>
+    <div className="viewport-login">
+      <h3>{email} is logged in</h3>
+      <p>links</p>
+      <div className="Nav-Item" onClick={()=> history.push('/projectmanager')}> project manager</div>
     </div>
   )
 }

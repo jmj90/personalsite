@@ -41,7 +41,6 @@ git add -f public/bundles/index.bundle.js public/bundles/index.bundle.js.map
 git add -f public/bundles/lander.bundle.js public/bundles/lander.bundle.js.map
 git add -f public/bundles/projects.bundle.js public/bundles/projects.bundle.js.map
 
-
 # create a commit, even if nothing changed
 git commit --allow-empty -m 'Deploying'
 
