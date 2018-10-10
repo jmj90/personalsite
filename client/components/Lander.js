@@ -89,7 +89,7 @@ export default class Lander extends Component {
            </div>
           <div id="tag-container" className='hidden'>
             <div id="occupation"> Software Engineer. Creative Professional.  </div>
-            <div help={df}  id="links" onMouseLeave={this.mouseOverLeave}>
+            <div id="links" onMouseLeave={this.mouseOverLeave}>
               <a href="https://github.com/jmj90" rel="noopener noreferrer" target="_blank">
                 <img
                   className="icons"
