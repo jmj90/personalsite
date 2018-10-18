@@ -396,6 +396,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+// TODO: edit fors
+
+/*
+  - use event targeting to grab selected project
+  - use that value to set a local state object that can populate the edit Form
+  - bring in update project thunk from store
+  - update state on enter
+*/
 var ProjectManager =
 /*#__PURE__*/
 function (_Component) {
