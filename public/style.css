@@ -258,6 +258,7 @@ h3 {
   margin-left: 10rem;
   width: 100vw; */
   transition: .1s;
+  margin-bottom: 1rem;
 }
 
 .panelButton:hover {
