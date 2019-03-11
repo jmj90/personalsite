@@ -118,6 +118,118 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./client/components/Contact.js":
+/*!**************************************!*\
+  !*** ./client/components/Contact.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _history = _interopRequireDefault(__webpack_require__(/*! ../history */ "./client/history.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Contact =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Contact, _Component);
+
+  function Contact() {
+    _classCallCheck(this, Contact);
+
+    return _possibleConstructorReturn(this, (Contact.__proto__ || Object.getPrototypeOf(Contact)).apply(this, arguments));
+  }
+
+  _createClass(Contact, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      if (_history.default.location.pathname) {
+        this.transitionLoad(); // window.addEventListener('load', this.transitionLoad, false)
+      }
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {// window.removeEventListener('load', this.transitionLoad)
+    }
+  }, {
+    key: "transitionLoad",
+    value: function transitionLoad() {
+      var title = document.getElementById('title');
+      var contact = document.getElementById('contact-container');
+
+      if (title.classList.contains('hidden')) {
+        setTimeout(function () {
+          title.className = '';
+        }, 100);
+      }
+
+      if (contact.classList.contains('hidden')) {
+        setTimeout(function () {
+          contact.className = '';
+        }, 300);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "viewport"
+      }, _react.default.createElement("div", {
+        id: "title",
+        className: "hidden"
+      }, " Contact "), _react.default.createElement("div", {
+        id: "contact-container",
+        className: "hidden",
+        onClick: function onClick() {
+          return window.location.href = 'mailto:jakej.dev@gmail.com';
+        }
+      }, _react.default.createElement("img", {
+        className: "icons",
+        name: "#D8503F",
+        title: "contact",
+        src: "/images/icons/gmail.png"
+      }), "\xA0\xA0jakej.dev@gmail.com"), _react.default.createElement("div", {
+        className: "Nav-Item",
+        onClick: function onClick() {
+          return _history.default.push('/');
+        }
+      }, " Home "), _react.default.createElement("div", {
+        id: "copy"
+      }, "\xA9 2017-2018 Jake Johnson"));
+    }
+  }]);
+
+  return Contact;
+}(_react.Component);
+
+exports.default = Contact;
+
+/***/ }),
+
 /***/ "./client/components/Lander.js":
 /*!*************************************!*\
   !*** ./client/components/Lander.js ***!
@@ -214,14 +326,14 @@ function (_Component) {
       var title = evt.target.title;
       document.getElementById('name').innerHTML = "".concat(title);
       document.getElementById('name').classList.add('active');
-      document.body.style.backgroundColor = "".concat(color);
+      document.getElementById('name').style.color = "".concat(color);
     }
   }, {
     key: "mouseOverLeave",
     value: function mouseOverLeave() {
       document.getElementById('name').innerHTML = "Jake Johnson";
       document.getElementById('name').classList.remove('active');
-      document.body.style.backgroundColor = "white";
+      document.getElementById('name').style.color = "#242423";
     }
   }, {
     key: "mouseOverImageEnter",
@@ -265,7 +377,7 @@ function (_Component) {
         className: "hidden"
       }, _react.default.createElement("div", {
         id: "occupation"
-      }, " Software Engineer. Creative Professional.  "), _react.default.createElement("div", {
+      }, " Software Engineer. Multimedia Content Creator.  "), _react.default.createElement("div", {
         id: "links",
         onMouseLeave: this.mouseOverLeave
       }, _react.default.createElement("a", {
@@ -289,16 +401,6 @@ function (_Component) {
         onMouseEnter: this.mouseOverEnter,
         src: "/images/icons/linked.png"
       })), _react.default.createElement("a", {
-        href: "https://www.behance.net/jmj90",
-        rel: "noopener noreferrer",
-        target: "_blank"
-      }, _react.default.createElement("img", {
-        className: "icons",
-        name: "#000",
-        title: "behance",
-        onMouseEnter: this.mouseOverEnter,
-        src: "/images/icons/behance.svg"
-      })), _react.default.createElement("a", {
         href: "https://twitter.com/jmjninety",
         rel: "noopener noreferrer",
         target: "_blank"
@@ -308,6 +410,14 @@ function (_Component) {
         title: "twitter",
         onMouseEnter: this.mouseOverEnter,
         src: "/images/icons/twitter.png"
+      })), _react.default.createElement("a", {
+        href: "/contact"
+      }, _react.default.createElement("img", {
+        className: "icons",
+        name: "#D8503F",
+        title: "contact",
+        onMouseEnter: this.mouseOverEnter,
+        src: "/images/icons/gmail.png"
       })))), _react.default.createElement("div", {
         id: "about-container"
       }, _react.default.createElement("div", {
@@ -342,7 +452,7 @@ function (_Component) {
         }
       }, "Projects"))), _react.default.createElement("div", {
         id: "copy"
-      }, "\xA9 2017-2018 Jake Johnson"));
+      }, "\xA9 2017-2019 Jake Johnson"));
     }
   }]);
 
@@ -396,7 +506,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-// TODO: edit fors
+// TODO: edit forms
 
 /*
   - use event targeting to grab selected project
@@ -731,9 +841,7 @@ function (_Component) {
         onClick: function onClick() {
           return _history.default.push('/');
         }
-      }, " Home ")), _react.default.createElement("div", {
-        id: "copy"
-      }, "\xA9 2017-2018 Jake Johnson"));
+      }, " Home ")));
     }
   }]);
 
@@ -917,6 +1025,12 @@ Object.defineProperty(exports, "ProjectManager", {
     return _ProjectManager.default;
   }
 });
+Object.defineProperty(exports, "Contact", {
+  enumerable: true,
+  get: function get() {
+    return _Contact.default;
+  }
+});
 
 var _navbar = _interopRequireDefault(__webpack_require__(/*! ./navbar */ "./client/components/navbar.js"));
 
@@ -929,6 +1043,8 @@ var _Lander = _interopRequireDefault(__webpack_require__(/*! ./Lander */ "./clie
 var _Projects = _interopRequireDefault(__webpack_require__(/*! ./Projects */ "./client/components/Projects.js"));
 
 var _ProjectManager = _interopRequireDefault(__webpack_require__(/*! ./ProjectManager */ "./client/components/ProjectManager.js"));
+
+var _Contact = _interopRequireDefault(__webpack_require__(/*! ./Contact */ "./client/components/Contact.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1218,6 +1334,10 @@ function (_Component) {
         path: "/projects",
         component: _components.Projects
       }), _react.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/contact",
+        component: _components.Contact
+      }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/login",
         component: _components.Login
       }), _react.default.createElement(_reactRouterDom.Route, {
@@ -1231,6 +1351,8 @@ function (_Component) {
         exact: true,
         path: "/projectmanager",
         component: _components.ProjectManager
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        component: _components.Lander
       })), _react.default.createElement(_reactRouterDom.Route, {
         component: _components.Lander
       }));

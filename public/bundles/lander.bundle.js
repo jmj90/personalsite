@@ -182,14 +182,14 @@ function (_Component) {
       var title = evt.target.title;
       document.getElementById('name').innerHTML = "".concat(title);
       document.getElementById('name').classList.add('active');
-      document.body.style.backgroundColor = "".concat(color);
+      document.getElementById('name').style.color = "".concat(color);
     }
   }, {
     key: "mouseOverLeave",
     value: function mouseOverLeave() {
       document.getElementById('name').innerHTML = "Jake Johnson";
       document.getElementById('name').classList.remove('active');
-      document.body.style.backgroundColor = "white";
+      document.getElementById('name').style.color = "#242423";
     }
   }, {
     key: "mouseOverImageEnter",
@@ -233,7 +233,7 @@ function (_Component) {
         className: "hidden"
       }, _react.default.createElement("div", {
         id: "occupation"
-      }, " Software Engineer. Creative Professional.  "), _react.default.createElement("div", {
+      }, " Software Engineer. Multimedia Content Creator.  "), _react.default.createElement("div", {
         id: "links",
         onMouseLeave: this.mouseOverLeave
       }, _react.default.createElement("a", {
@@ -257,16 +257,6 @@ function (_Component) {
         onMouseEnter: this.mouseOverEnter,
         src: "/images/icons/linked.png"
       })), _react.default.createElement("a", {
-        href: "https://www.behance.net/jmj90",
-        rel: "noopener noreferrer",
-        target: "_blank"
-      }, _react.default.createElement("img", {
-        className: "icons",
-        name: "#000",
-        title: "behance",
-        onMouseEnter: this.mouseOverEnter,
-        src: "/images/icons/behance.svg"
-      })), _react.default.createElement("a", {
         href: "https://twitter.com/jmjninety",
         rel: "noopener noreferrer",
         target: "_blank"
@@ -276,6 +266,14 @@ function (_Component) {
         title: "twitter",
         onMouseEnter: this.mouseOverEnter,
         src: "/images/icons/twitter.png"
+      })), _react.default.createElement("a", {
+        href: "/contact"
+      }, _react.default.createElement("img", {
+        className: "icons",
+        name: "#D8503F",
+        title: "contact",
+        onMouseEnter: this.mouseOverEnter,
+        src: "/images/icons/gmail.png"
       })))), _react.default.createElement("div", {
         id: "about-container"
       }, _react.default.createElement("div", {
@@ -310,7 +308,7 @@ function (_Component) {
         }
       }, "Projects"))), _react.default.createElement("div", {
         id: "copy"
-      }, "\xA9 2017-2018 Jake Johnson"));
+      }, "\xA9 2017-2019 Jake Johnson"));
     }
   }]);
 

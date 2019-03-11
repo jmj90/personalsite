@@ -52,6 +52,18 @@ h3 {
   transition: .5s;
 }
 
+#contact-container {
+  display: flex;
+  margin: 1rem;
+  align-items: center;
+  transition: .5s;
+  cursor: pointer;
+}
+
+#contact-container:hover {
+  color: lightblue
+}
+
 .hidden {
   opacity: 0;
   transform: translate3d(0px, 18px, 0)
@@ -117,7 +129,7 @@ h3 {
   font-size: 4.5rem;
   color: #242423;
   position: relative;
-  transition: .4s ;
+  transition: .3s ;
 }
 
 #name.active {
@@ -148,6 +160,7 @@ h3 {
   display: flex;
   justify-content: center;
   font-weight: bold;
+  font-size: 14px;
   color: #242423;
 }
 

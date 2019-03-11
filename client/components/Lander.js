@@ -48,13 +48,13 @@ export default class Lander extends Component {
     let title = evt.target.title
     document.getElementById('name').innerHTML = `${title}`
     document.getElementById('name').classList.add('active')
-    document.body.style.backgroundColor = `${color}`
+    document.getElementById('name').style.color = `${color}`
   }
 
   mouseOverLeave() {
     document.getElementById('name').innerHTML = "Jake Johnson"
     document.getElementById('name').classList.remove('active')
-    document.body.style.backgroundColor = "white"
+    document.getElementById('name').style.color = `#242423`
   }
 
   mouseOverImageEnter() {
@@ -88,7 +88,7 @@ export default class Lander extends Component {
             <div id="nameline" />
            </div>
           <div id="tag-container" className='hidden'>
-            <div id="occupation"> Software Engineer. Creative Professional.  </div>
+            <div id="occupation"> Software Engineer. Multimedia Content Creator.  </div>
             <div id="links" onMouseLeave={this.mouseOverLeave}>
               <a href="https://github.com/jmj90" rel="noopener noreferrer" target="_blank">
                 <img
@@ -106,21 +106,21 @@ export default class Lander extends Component {
                   onMouseEnter={this.mouseOverEnter}
                   src="/images/icons/linked.png" />
               </a>
-              <a href="https://www.behance.net/jmj90" rel="noopener noreferrer" target="_blank">
-                <img
-                  className="icons"
-                  name="#000"
-                  title="behance"
-                  onMouseEnter={this.mouseOverEnter}
-                  src="/images/icons/behance.svg" />
-              </a>
-              <a href="https://twitter.com/jmjninety" rel="noopener noreferrer" target="_blank">
+               <a href="https://twitter.com/jmjninety" rel="noopener noreferrer" target="_blank">
                 <img
                   className="icons"
                   name="#52B6E6"
                   title="twitter"
                   onMouseEnter={this.mouseOverEnter}
                   src="/images/icons/twitter.png" />
+              </a>
+              <a href="/contact">
+                <img
+                  className="icons"
+                  name="#D8503F"
+                  title="contact"
+                  onMouseEnter={this.mouseOverEnter}
+                  src="/images/icons/gmail.png" />
               </a>
             </div>
           </div>
@@ -169,7 +169,7 @@ export default class Lander extends Component {
             {/*<div className="Nav-Item" onClick={()=> history.push('/contact')}>Contact</div>*/}
           </div>
         </div>
-        <div id="copy">© 2017-2018 Jake Johnson</div>
+        <div id="copy">© 2017-2019 Jake Johnson</div>
     </div>
     )
   }

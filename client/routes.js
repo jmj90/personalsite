@@ -8,7 +8,8 @@ import {
   UserHome,
   Lander,
   Projects,
-  ProjectManager
+  ProjectManager,
+  Contact
 } from './components'
 import {me, fetchProjects} from './store'
 
@@ -31,6 +32,7 @@ class Routes extends Component {
         <Route exact path="/" component={Lander} />
         <Route exact path="/home" component={Lander} />
         <Route exact path="/projects" component={Projects} />
+        <Route exact path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         {
@@ -39,6 +41,7 @@ class Routes extends Component {
               {/* Routes placed here are only available after logging in */}
               <Route exact path="/userhome" component={UserHome} />
               <Route exact path="/projectmanager" component={ProjectManager} />
+              <Route component={Lander} />
             </Switch>
         }
         {/* Displays our Login component as a fallback */}

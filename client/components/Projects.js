@@ -151,7 +151,6 @@ class Projects extends Component {
         <div className="Nav-Bottom">
           <div className="Nav-Item" onClick={() => history.push('/')}> Home </div>
         </div>
-        <div id="copy">© 2017-2018 Jake Johnson</div>
       </div>
     )
   }

@@ -274,9 +274,7 @@ function (_Component) {
         onClick: function onClick() {
           return _history.default.push('/');
         }
-      }, " Home ")), _react.default.createElement("div", {
-        id: "copy"
-      }, "\xA9 2017-2018 Jake Johnson"));
+      }, " Home ")));
     }
   }]);
 

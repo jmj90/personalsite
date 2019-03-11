@@ -5,7 +5,7 @@ import { Tab, Form, Button } from 'semantic-ui-react'
 import { addProject } from '../store'
 
 
-// TODO: edit fors
+// TODO: edit forms
 /*
   - use event targeting to grab selected project
   - use that value to set a local state object that can populate the edit Form
