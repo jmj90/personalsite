@@ -36,9 +36,16 @@ h3 {
 }
 
 #copy {
-  z-index: -5;
+  z-index: -10;
   bottom: 4px;
   position: absolute;
+  font-size: .8rem;
+  color: #242423;
+}
+
+#copy-moveable {
+  margin-bottom: -1.75rem;
+  z-index: -10;
   font-size: .8rem;
   color: #242423;
 }
@@ -248,6 +255,16 @@ h3 {
 
 /* ------------ projects page ------------ */
 /*  ---------------------------------------------------------------------------------------------------------------------  */
+.productView {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.project-spread {
+  margin-right: .5rem;
+}
+
 
 .project-title {
   font-family: "HelveticaNeue";
@@ -290,7 +307,7 @@ h3 {
   flex-direction: column; */
   overflow-y: scroll;
   height: 0px;
-  width: 869px;
+  width: 363px;
   transition: .2s;
   white-space: pre-line;
   color: black;
@@ -306,15 +323,12 @@ h3 {
 }
 
 .project-card-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   transition: .5s;
 }
 
 .project-card {
   cursor: pointer;
-  max-height: 100px;
+  max-height: 200px;
   transition: .2s ease;
   z-index: 4;
 }
@@ -333,6 +347,7 @@ h3 {
 }
 
 .project-item {
+  font-size: 12px;
   margin-left: 1rem;
   margin-right: 1rem;
 }
@@ -376,17 +391,33 @@ h3 {
   transition: .1s;
 }
 
+.Nav-Item-2 {
+  font-family: "HelveticaNeue";
+  color: #242423;
+  margin-bottom: .6rem;
+  font-weight: bold;
+  transition: .1s;
+}
+
 .Nav-Item:hover {
   cursor: pointer;
   color: white;
   text-shadow: 1px 2px 10px gray;
 }
 
+.Nav-Item-2:hover {
+  cursor: pointer;
+  color: white;
+  text-shadow: 1px 2px 10px gray;
+}
+
+
 .Nav-Bottom {
   display: flex;
   margin-bottom: 2rem;
   flex-direction: column;
   height: 100vh;
+  align-items: center;
   justify-content: flex-end;
   /* bottom: 40px; */
   /* position: absolute; */

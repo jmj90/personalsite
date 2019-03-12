@@ -48,7 +48,7 @@ export default class Contact extends Component {
           &nbsp;&nbsp;jakej.dev@gmail.com
         </div>
           <div className="Nav-Item" onClick={() => history.push('/')}> Home </div>
-        <div id="copy">© 2017-2018 Jake Johnson</div>
+        <div id="copy">© 2017-2019 Jake Johnson</div>
       </div>
     )
   }

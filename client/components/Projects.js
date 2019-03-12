@@ -149,7 +149,8 @@ class Projects extends Component {
         <div id="title" className="hidden"> Projects </div>
         {this.getProjects()}
         <div className="Nav-Bottom">
-          <div className="Nav-Item" onClick={() => history.push('/')}> Home </div>
+          <div className="Nav-Item-2" onClick={() => history.push('/')}> Home </div>
+          <div id="copy-moveable">© 2017-2019 Jake Johnson</div>
         </div>
       </div>
     )

@@ -270,11 +270,13 @@ function (_Component) {
       }, " Projects "), this.getProjects(), _react.default.createElement("div", {
         className: "Nav-Bottom"
       }, _react.default.createElement("div", {
-        className: "Nav-Item",
+        className: "Nav-Item-2",
         onClick: function onClick() {
           return _history.default.push('/');
         }
-      }, " Home ")));
+      }, " Home "), _react.default.createElement("div", {
+        id: "copy-moveable"
+      }, "\xA9 2017-2019 Jake Johnson")));
     }
   }]);
 
