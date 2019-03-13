@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import history from '../history'
-// import { Accordion, Icon } from 'semantic-ui-react'
 import _ from 'lodash'
 
 
