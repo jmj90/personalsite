@@ -15,13 +15,15 @@ const deleteProject = id => ({ type: DELETE_PROJECT, id });
 
 // PROJECT REDUCER
 export default function reducer(projects = [], action) {
+  let newState = projects.slice()
   switch (action.type) {
 
     case INIT_PROJECTS:
       return action.projects;
 
     case CREATE_PROJECT:
-      return [...projects, action.project];
+    projects.push(action.project)
+    return newState
 
     case EDIT_PROJECT:
       return projects.map(project => (
@@ -44,7 +46,6 @@ export const fetchProjects = () => dispatch => {
 }
 
 export const addProject = project => dispatch => {
-  console.log(project)
   axios.post('/api/projects', project)
     .then(res => {
       dispatch(createProject(res.data))

@@ -253,7 +253,98 @@ function (_Component) {
           target: "_blank"
         }, "Github")) : ''), _react.default.createElement("div", {
           className: "textarea"
-        }, project.description)), _react.default.createElement("div", {
+        }, project.description, _react.default.createElement("div", {
+          className: "project-roles-list"
+        }, _react.default.createElement("div", {
+          className: "project-subtitle"
+        }, "Roles:"), project.roles.map(function (role) {
+          return _react.default.createElement("div", {
+            className: "project-role"
+          }, role);
+        })), _react.default.createElement("div", {
+          className: "project-tech-list"
+        }, _react.default.createElement("div", {
+          className: "project-subtitle"
+        }, "Tech:"), project.tech.map(function (tech) {
+          tech = tech.trim();
+
+          switch (tech) {
+            case 'React':
+              tech = _react.default.createElement("div", {
+                className: "project-sublist-item"
+              }, _react.default.createElement("img", {
+                className: "project-icons",
+                src: "/images/icons/react.png"
+              }), _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech));
+              break;
+
+            case 'Firebase':
+              tech = _react.default.createElement("div", {
+                className: "project-sublist-item"
+              }, _react.default.createElement("img", {
+                className: "project-icons",
+                src: "/images/icons/firebase.png"
+              }), _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech));
+              break;
+
+            case 'PostgreSQL':
+              tech = _react.default.createElement("div", {
+                className: "project-sublist-item"
+              }, _react.default.createElement("img", {
+                className: "project-icons",
+                src: "/images/icons/postgres.png"
+              }), _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech));
+              break;
+
+            case 'Redux':
+              tech = _react.default.createElement("div", {
+                className: "project-sublist-item"
+              }, _react.default.createElement("img", {
+                className: "project-icons",
+                src: "/images/icons/redux.png"
+              }), _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech));
+              break;
+
+            case 'Express':
+              tech = _react.default.createElement("div", {
+                className: "project-sublist-item"
+              }, _react.default.createElement("img", {
+                className: "project-icons",
+                src: "/images/icons/express.png"
+              }), _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech));
+              break;
+
+            case 'Node':
+              tech = _react.default.createElement("div", {
+                className: "project-sublist-item"
+              }, _react.default.createElement("img", {
+                className: "project-icons",
+                src: "/images/icons/node.png"
+              }), _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech));
+              break;
+
+            default:
+              return _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech);
+          }
+
+          return _react.default.createElement("div", {
+            className: "project-tech"
+          }, tech);
+        })))), _react.default.createElement("div", {
           id: project.id,
           className: "panelButton"
         }, " find out more \u25BE ")));

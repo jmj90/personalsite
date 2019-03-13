@@ -23,3 +23,15 @@ router.post('/', (req, res, next) => {
   .then(project => res.json(project).status(200))
   .catch(next)
 })
+
+router.put('/:id', (req, res, next) => {
+  let id = req.params.id
+  Project.findOne({
+    where: { id },
+  })
+  .then(product => {
+    product.update(req.body)
+  })
+  .then(() => res.json(req.body).status(200))
+  .catch(next)
+})

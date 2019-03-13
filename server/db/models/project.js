@@ -23,6 +23,14 @@ const Project = db.define('project', {
   description: {
     type: Sequelize.TEXT
   },
+  roles: {
+    type: Sequelize.ARRAY(Sequelize.TEXT),
+    defaultValue: []
+  },
+  tech: {
+    type: Sequelize.ARRAY(Sequelize.TEXT),
+    defaultValue: []
+  },
 
 })
 

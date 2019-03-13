@@ -9,7 +9,8 @@ body {
 
 a {
   text-decoration: none;
-  color: black
+  color: black;
+  cursor: pointer;
 }
 
 a:hover {
@@ -34,6 +35,40 @@ form div {
 h3 {
   color: #242423;
 }
+
+input {
+  width: 500px;
+  height: 20px;
+  font-size: 14px;
+}
+
+label {
+  margin-top: .5rem;
+  margin-bottom: .2rem;
+}
+
+textarea {
+  resize: none;
+  width: 500px;
+  height: 60px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  width: 200px !important;
+}
+
+.submitButton {
+  margin-top: 1rem;
+  border: none;
+  height: 40px;
+  width: 150px;
+  font-size: 14px;
+  background-color: gray;
+  color: white;
+}
+
 
 #copy {
   z-index: -10;
@@ -372,7 +407,36 @@ h3 {
   filter: blur(2px); */
 }
 
+.project-subtitle {
+  margin-top: 1rem;
+  background-color: lightgray;
+}
 
+.project-tech-list {
+ margin: 0rem;
+}
+
+.project-tech {
+  font-size: 12px;
+}
+
+.project-roles-list {
+ margin: 0rem;
+}
+
+.project-role {
+  font-size: 12px;
+}
+
+.project-sublist-item {
+  display: flex;
+  align-items: center;
+}
+
+.project-icons {
+  max-width: 13px;
+  margin-right: .2rem;
+}
 
 /* ------------ NAV ------------ */
 /*  ---------------------------------------------------------------------------------------------------------------------  */
@@ -435,6 +499,11 @@ h3 {
   width: 100%;
 }
 
+.pm-list-item:hover {
+  cursor: pointer;
+  color: lightblue;
+}
+
 .project-list {
   margin-top: 2rem;
   width: 70vw;
@@ -442,7 +511,6 @@ h3 {
 
 .project-form {
   margin-top: 2rem;
-  width: 50%;
 }
 
 

@@ -494,6 +494,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -525,74 +527,55 @@ function (_Component) {
     _classCallCheck(this, ProjectManager);
 
     _this = _possibleConstructorReturn(this, (ProjectManager.__proto__ || Object.getPrototypeOf(ProjectManager)).call(this, props));
+    _this.state = {
+      id: '',
+      title: '',
+      date: '',
+      imgUrl: '',
+      deployLink: '',
+      githubLink: '',
+      videoLink: '',
+      description: '',
+      roles: [],
+      tech: []
+    };
     _this.createProject = _this.createProject.bind(_assertThisInitialized(_this));
+    _this.updateProject = _this.updateProject.bind(_assertThisInitialized(_this));
+    _this.changeHandler = _this.changeHandler.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(ProjectManager, [{
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var projects = this.props.projects;
-      var panes = [{
-        menuItem: 'Add Project',
-        render: function render() {
-          return _react.default.createElement(_semanticUiReact.Tab.Pane, null, _this2.newProjectForm());
-        }
-      }, {
-        menuItem: 'Edit Project',
-        render: function render() {
-          return _react.default.createElement(_semanticUiReact.Tab.Pane, null, "Tab 2 Content");
-        }
-      }];
-      return _react.default.createElement("div", {
-        className: "viewport"
-      }, _react.default.createElement("div", {
-        id: "title"
-      }, " Project Manager "), _react.default.createElement("div", {
-        className: "project-list"
-      }, projects.map(function (project) {
-        return _react.default.createElement("div", {
-          className: "pm-list-item",
-          key: project.id
-        }, project.title);
-      })), _react.default.createElement(_semanticUiReact.Tab, {
-        className: "project-form",
-        panes: panes
-      }), _react.default.createElement("div", {
-        className: "Nav-Bottom"
-      }, _react.default.createElement(_navbar.default, null)), _react.default.createElement("div", {
-        id: "copy"
-      }, "\xA9 2017-2018 Jake Johnson"));
+    key: "projectStateSet",
+    value: function projectStateSet(project) {
+      this.setState({
+        id: project.id,
+        title: project.title,
+        date: project.date,
+        imgUrl: project.imgUrl,
+        deployLink: project.deployLink,
+        githubLink: project.githubLink,
+        videoLink: project.videoLink,
+        description: project.description,
+        roles: project.roles,
+        tech: project.tech
+      });
     }
   }, {
-    key: "createProject",
-    value: function createProject(event, product) {
-      event.preventDefault();
-      var evt = event.target;
-      var newProject = Object.assign({}, product, {
-        title: evt.title.value,
-        date: evt.date.value,
-        description: evt.desc.value,
-        imgUrl: evt.imgUrl.value,
-        deployLink: evt.deployLink.value,
-        githubLink: evt.githubLink.value,
-        videoLink: evt.videoLink.value
-      });
-      console.log(newProject);
-      this.props.addProject(newProject);
+    key: "changeHandler",
+    value: function changeHandler(event) {
+      this.setState(_defineProperty({}, event.target.name, event.target.value));
     }
   }, {
     key: "newProjectForm",
     value: function newProjectForm() {
-      var _this3 = this;
+      var _this2 = this;
 
       var product = this.props.product;
-      return _react.default.createElement("div", null, _react.default.createElement(_semanticUiReact.Form, {
+      return _react.default.createElement("div", null, _react.default.createElement("h3", null, "NEW PROJECT"), _react.default.createElement(_semanticUiReact.Form, {
         id: "adminForm",
         onSubmit: function onSubmit(event) {
-          return _this3.createProject(event, product);
+          return _this2.createProject(event, product);
         }
       }, _react.default.createElement("label", null, " Title: "), _react.default.createElement("input", {
         name: "title",
@@ -602,7 +585,6 @@ function (_Component) {
       }), _react.default.createElement("label", null, " Date: "), _react.default.createElement("input", {
         name: "date",
         type: "text",
-        required: true,
         placeholder: "date"
       }), _react.default.createElement("label", null, " Description: "), _react.default.createElement("textarea", {
         name: "desc",
@@ -612,7 +594,7 @@ function (_Component) {
       }), _react.default.createElement("label", null, " Image Url: "), _react.default.createElement("input", {
         name: "imgUrl",
         type: "text",
-        defaultValue: "/images/projects/defaultphoto.png"
+        defaultValue: ""
       }), _react.default.createElement("label", null, " deployLink: "), _react.default.createElement("input", {
         name: "deployLink",
         type: "text",
@@ -625,11 +607,201 @@ function (_Component) {
         name: "videoLink",
         type: "text",
         placeholder: "videoLink"
-      }), _react.default.createElement("div", null, _react.default.createElement(_semanticUiReact.Button, {
+      }), _react.default.createElement("label", null, " roles: "), _react.default.createElement("input", {
+        name: "roles",
+        type: "text",
+        placeholder: "roles"
+      }), _react.default.createElement("label", null, " tech: "), _react.default.createElement("input", {
+        name: "tech",
+        type: "text",
+        placeholder: "tech"
+      }), _react.default.createElement("br", null), _react.default.createElement(_semanticUiReact.Button, {
         type: "submit",
-        id: "submitButton",
+        className: "submitButton",
         value: "Submit"
-      }, " Add Product "))));
+      }, " Add Product ")));
+    }
+  }, {
+    key: "editProjectForm",
+    value: function editProjectForm() {
+      var _this3 = this;
+
+      var product = this.props.product;
+      return _react.default.createElement("div", null, _react.default.createElement("h3", null, "EDIT PROJECT: ", this.state.title), _react.default.createElement(_semanticUiReact.Form, {
+        id: "adminForm",
+        onSubmit: function onSubmit(event) {
+          return _this3.updateProject(event, product);
+        }
+      }, _react.default.createElement("label", null, " Title: "), _react.default.createElement("input", {
+        name: "title",
+        type: "text",
+        placeholder: this.state.title,
+        value: this.state.title,
+        onChange: function onChange(evt) {
+          return _this3.changeHandler(evt);
+        }
+      }), _react.default.createElement("label", null, " Date: "), _react.default.createElement("input", {
+        name: "date",
+        type: "text",
+        placeholder: this.state.date,
+        value: this.state.date,
+        onChange: function onChange(evt) {
+          return _this3.changeHandler(evt);
+        }
+      }), _react.default.createElement("label", null, " Description: "), _react.default.createElement("textarea", {
+        name: "description",
+        type: "text",
+        placeholder: this.state.description,
+        value: this.state.description,
+        onChange: function onChange(evt) {
+          return _this3.changeHandler(evt);
+        }
+      }), _react.default.createElement("label", null, " Image Url: "), _react.default.createElement("input", {
+        name: "imgUrl",
+        type: "text",
+        placeholder: this.state.imgUrl,
+        value: this.state.imgUrl,
+        onChange: function onChange(evt) {
+          return _this3.changeHandler(evt);
+        }
+      }), _react.default.createElement("label", null, " deployLink: "), _react.default.createElement("input", {
+        name: "deployLink",
+        type: "text",
+        placeholder: this.state.deployLink,
+        value: this.state.deployLink,
+        onChange: function onChange(evt) {
+          return _this3.changeHandler(evt);
+        }
+      }), _react.default.createElement("label", null, " githubLink: "), _react.default.createElement("input", {
+        name: "githubLink",
+        type: "text",
+        placeholder: this.state.githubLink,
+        value: this.state.githubLink,
+        onChange: function onChange(evt) {
+          return _this3.changeHandler(evt);
+        }
+      }), _react.default.createElement("label", null, " videoLink: "), _react.default.createElement("input", {
+        name: "videoLink",
+        type: "text",
+        placeholder: this.state.videoLink,
+        value: this.state.videoLink,
+        onChange: function onChange(evt) {
+          return _this3.changeHandler(evt);
+        }
+      }), _react.default.createElement("label", null, " roles: "), _react.default.createElement("input", {
+        name: "roles",
+        type: "text",
+        placeholder: this.state.roles,
+        value: this.state.roles,
+        onChange: function onChange(evt) {
+          return _this3.changeHandler(evt);
+        }
+      }), _react.default.createElement("label", null, " tech: "), _react.default.createElement("input", {
+        name: "tech",
+        type: "text",
+        placeholder: this.state.tech,
+        value: this.state.tech,
+        onChange: function onChange(evt) {
+          return _this3.changeHandler(evt);
+        }
+      }), _react.default.createElement("br", null), _react.default.createElement(_semanticUiReact.Button, {
+        type: "submit",
+        className: "submitButton",
+        value: "Submit"
+      }, " Update Product ")));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      var projects = this.props.projects;
+      var panes = [{
+        menuItem: 'Add Project ',
+        render: function render() {
+          return _react.default.createElement(_semanticUiReact.Tab.Pane, null, _this4.newProjectForm());
+        }
+      }, {
+        menuItem: 'Edit Project',
+        render: function render() {
+          return _react.default.createElement(_semanticUiReact.Tab.Pane, null, _this4.editProjectForm());
+        }
+      }];
+      return _react.default.createElement("div", {
+        className: "viewport-projects"
+      }, _react.default.createElement("div", {
+        id: "title"
+      }, " Project Manager "), _react.default.createElement("div", {
+        className: "project-list"
+      }, projects.map(function (project) {
+        return _react.default.createElement("div", {
+          className: "pm-list-item",
+          key: project.id,
+          onClick: function onClick() {
+            return _this4.projectStateSet(project);
+          }
+        }, project.title);
+      })), _react.default.createElement(_semanticUiReact.Tab, {
+        className: "project-form",
+        panes: panes
+      }), _react.default.createElement(_navbar.default, null));
+    }
+  }, {
+    key: "createProject",
+    value: function createProject(event, product) {
+      event.preventDefault();
+      var evt = event.target;
+      var roleValues = evt.roles.value.split(',');
+      var techValues = evt.tech.value.split(',');
+      var newProject = Object.assign({}, product, {
+        title: evt.title.value,
+        date: evt.date.value,
+        description: evt.desc.value,
+        imgUrl: evt.imgUrl.value,
+        deployLink: evt.deployLink.value,
+        githubLink: evt.githubLink.value,
+        videoLink: evt.videoLink.value,
+        roles: roleValues,
+        tech: techValues
+      });
+      this.props.addProject(newProject);
+    }
+  }, {
+    key: "updateProject",
+    value: function updateProject(event, product) {
+      event.preventDefault();
+      var evt = event.target;
+      var roleValues = evt.roles.value.split(',');
+      var techValues = evt.tech.value.split(',');
+      var videoLink;
+      var githubLink;
+      var deployLink;
+
+      if (evt.videoLink.value === '') {
+        videoLink = null;
+      }
+
+      if (evt.githubLink.value === '') {
+        githubLink = null;
+      }
+
+      if (evt.deployLink.value === '') {
+        deployLink = null;
+      }
+
+      var updatedProject = Object.assign({}, product, {
+        id: this.state.id,
+        title: evt.title.value,
+        date: evt.date.value,
+        description: evt.description.value,
+        imgUrl: evt.imgUrl.value,
+        deployLink: deployLink,
+        githubLink: githubLink,
+        videoLink: videoLink,
+        roles: roleValues,
+        tech: techValues
+      });
+      this.props.updateProject(updatedProject);
     }
   }]);
 
@@ -644,7 +816,8 @@ var mapStateToProps = function mapStateToProps(_ref) {
 };
 
 var mapDispatchToProps = {
-  addProject: _store.addProject
+  addProject: _store.addProject,
+  updateProject: _store.updateProject
 };
 
 var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ProjectManager);
@@ -820,7 +993,98 @@ function (_Component) {
           target: "_blank"
         }, "Github")) : ''), _react.default.createElement("div", {
           className: "textarea"
-        }, project.description)), _react.default.createElement("div", {
+        }, project.description, _react.default.createElement("div", {
+          className: "project-roles-list"
+        }, _react.default.createElement("div", {
+          className: "project-subtitle"
+        }, "Roles:"), project.roles.map(function (role) {
+          return _react.default.createElement("div", {
+            className: "project-role"
+          }, role);
+        })), _react.default.createElement("div", {
+          className: "project-tech-list"
+        }, _react.default.createElement("div", {
+          className: "project-subtitle"
+        }, "Tech:"), project.tech.map(function (tech) {
+          tech = tech.trim();
+
+          switch (tech) {
+            case 'React':
+              tech = _react.default.createElement("div", {
+                className: "project-sublist-item"
+              }, _react.default.createElement("img", {
+                className: "project-icons",
+                src: "/images/icons/react.png"
+              }), _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech));
+              break;
+
+            case 'Firebase':
+              tech = _react.default.createElement("div", {
+                className: "project-sublist-item"
+              }, _react.default.createElement("img", {
+                className: "project-icons",
+                src: "/images/icons/firebase.png"
+              }), _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech));
+              break;
+
+            case 'PostgreSQL':
+              tech = _react.default.createElement("div", {
+                className: "project-sublist-item"
+              }, _react.default.createElement("img", {
+                className: "project-icons",
+                src: "/images/icons/postgres.png"
+              }), _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech));
+              break;
+
+            case 'Redux':
+              tech = _react.default.createElement("div", {
+                className: "project-sublist-item"
+              }, _react.default.createElement("img", {
+                className: "project-icons",
+                src: "/images/icons/redux.png"
+              }), _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech));
+              break;
+
+            case 'Express':
+              tech = _react.default.createElement("div", {
+                className: "project-sublist-item"
+              }, _react.default.createElement("img", {
+                className: "project-icons",
+                src: "/images/icons/express.png"
+              }), _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech));
+              break;
+
+            case 'Node':
+              tech = _react.default.createElement("div", {
+                className: "project-sublist-item"
+              }, _react.default.createElement("img", {
+                className: "project-icons",
+                src: "/images/icons/node.png"
+              }), _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech));
+              break;
+
+            default:
+              return _react.default.createElement("div", {
+                className: "project-tech"
+              }, tech);
+          }
+
+          return _react.default.createElement("div", {
+            className: "project-tech"
+          }, tech);
+        })))), _react.default.createElement("div", {
           id: project.id,
           className: "panelButton"
         }, " find out more \u25BE ")));
@@ -1488,8 +1752,6 @@ var _history = _interopRequireDefault(__webpack_require__(/*! ../history */ "./c
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 // PROJECT ACTION TYPES
 var INIT_PROJECTS = 'INIT_PROJECTS';
 var CREATE_PROJECT = 'CREATE_PROJECT';
@@ -1528,13 +1790,15 @@ var deleteProject = function deleteProject(id) {
 function reducer() {
   var projects = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments.length > 1 ? arguments[1] : undefined;
+  var newState = projects.slice();
 
   switch (action.type) {
     case INIT_PROJECTS:
       return action.projects;
 
     case CREATE_PROJECT:
-      return _toConsumableArray(projects).concat([action.project]);
+      projects.push(action.project);
+      return newState;
 
     case EDIT_PROJECT:
       return projects.map(function (project) {
@@ -1566,8 +1830,6 @@ exports.fetchProjects = fetchProjects;
 
 var addProject = function addProject(project) {
   return function (dispatch) {
-    console.log(project);
-
     _axios.default.post('/api/projects', project).then(function (res) {
       dispatch(createProject(res.data));
       window.location.href = "/projects";

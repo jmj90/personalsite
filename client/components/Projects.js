@@ -130,6 +130,81 @@ class Projects extends Component {
                     </div>
                     <div className="textarea">
                       {project.description}
+                      <div className="project-roles-list">
+                        <div className="project-subtitle">Roles:</div>
+                        {
+                          project.roles.map(role => {
+                            return(
+                              <div className="project-role">{role}</div>
+                            )
+                          })
+                        }
+                      </div>
+                      <div className="project-tech-list">
+                        <div className="project-subtitle">Tech:</div>
+                        {
+                          project.tech.map(tech => {
+                            tech = tech.trim()
+                            switch (tech) {
+                              case 'React':
+                              tech = (
+                                <div className="project-sublist-item">
+                                  <img className="project-icons" src="/images/icons/react.png" />
+                                  <div className="project-tech">{tech}</div>
+                                </div>
+                              )
+                                break;
+                              case 'Firebase':
+                              tech = (
+                                <div className="project-sublist-item">
+                                  <img className="project-icons" src="/images/icons/firebase.png" />
+                                  <div className="project-tech">{tech}</div>
+                                </div>
+                              )
+                                break;
+                              case 'PostgreSQL':
+                              tech = (
+                                <div className="project-sublist-item">
+                                  <img className="project-icons" src="/images/icons/postgres.png" />
+                                  <div className="project-tech">{tech}</div>
+                                </div>
+                              )
+                                break;
+                              case 'Redux':
+                              tech = (
+                                <div className="project-sublist-item">
+                                  <img className="project-icons" src="/images/icons/redux.png" />
+                                  <div className="project-tech">{tech}</div>
+                                </div>
+                              )
+                                break;
+                              case 'Express':
+                              tech = (
+                                <div className="project-sublist-item">
+                                  <img className="project-icons" src="/images/icons/express.png" />
+                                  <div className="project-tech">{tech}</div>
+                                </div>
+                              )
+                                break;
+                              case 'Node':
+                              tech = (
+                                <div className="project-sublist-item">
+                                  <img className="project-icons" src="/images/icons/node.png" />
+                                  <div className="project-tech">{tech}</div>
+                                </div>
+                              )
+                                break;
+                                default:
+                                return (
+                                  <div className="project-tech">{tech}</div>
+                                )
+                            }
+                            return (
+                              <div className="project-tech">{tech}</div>
+                            )
+                          })
+                        }
+                      </div>
                     </div>
                   </div>
                   <div id={project.id} className="panelButton"> find out more ▾ </div>
