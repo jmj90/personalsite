@@ -8,10 +8,10 @@ import _ from 'lodash'
 class Projects extends Component {
 
   componentDidMount() {
+    // this.transitionLoad()
     if (history.location){
       this.transitionLoad()
       window.addEventListener('load', this.transitionLoad, false)
-      // window.addEventListener('mouseover', this.transitionLoad, false);
     }
   }
 
@@ -21,7 +21,7 @@ class Projects extends Component {
 
   transitionLoad() {
     let title = document.getElementById('title');
-    let pics = document.getElementsByClassName('project-card-container');
+    let pics = Array.prototype.slice.call(document.getElementsByClassName('project-card-container'));
     let picsLength = pics.length
 
     if (title.classList.contains('hidden')){

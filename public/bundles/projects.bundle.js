@@ -139,9 +139,10 @@ function (_Component) {
   _createClass(Projects, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      // this.transitionLoad()
       if (_history.default.location) {
         this.transitionLoad();
-        window.addEventListener('load', this.transitionLoad, false); // window.addEventListener('mouseover', this.transitionLoad, false);
+        window.addEventListener('load', this.transitionLoad, false);
       }
     }
   }, {
@@ -153,7 +154,7 @@ function (_Component) {
     key: "transitionLoad",
     value: function transitionLoad() {
       var title = document.getElementById('title');
-      var pics = document.getElementsByClassName('project-card-container');
+      var pics = Array.prototype.slice.call(document.getElementsByClassName('project-card-container'));
       var picsLength = pics.length;
 
       if (title.classList.contains('hidden')) {
